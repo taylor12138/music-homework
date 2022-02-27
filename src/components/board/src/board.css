@@ -1,0 +1,15 @@
+.board {
+  width: 15.95rem;
+  margin-top: 0.8rem;
+  background-color: white;
+  border: 0.05rem;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+}
+.board .time {
+  color: #ccc;
+  font-size: 0.5rem;
+}
+.board .text {
+  font-size: 0.8rem;
+}

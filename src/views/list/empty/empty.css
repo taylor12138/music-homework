@@ -1,0 +1,13 @@
+.tip {
+  width: 9.45rem;
+  height: 10.95rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.tip .box {
+  width: 8.5rem;
+  height: 6rem;
+  background: no-repeat center / 5.75rem 4.5rem url('~@/assets/img/box@2x.png');
+}
