@@ -6,15 +6,16 @@ import './dream-list.less'
 import useEidt from '../hooks/useEidt'
 import { MusicButton } from '@/components/music-button'
 import { Board } from '@/components/board'
-// import { Dot } from '@/components/dot'
+import { connect } from 'react-redux'
 
-export default withRouter(function DreamList(props) {
+function DreamList(props) {
+  console.log(props)
   const [startClick] = useEidt()
   return (
     <div className="dream-list">
       <article>
         <Timeline>
-          {props.list.map((item) => {
+          {props.dreamList.map((item) => {
             return (
               <Timeline.Item
                 color="gray"
@@ -37,4 +38,9 @@ export default withRouter(function DreamList(props) {
       </footer>
     </div>
   )
-})
+}
+function mapStateToProps(state) {
+  return { dreamList: state.list }
+}
+
+export default connect(mapStateToProps)(withRouter(DreamList))

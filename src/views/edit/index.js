@@ -2,21 +2,21 @@ import React, { useState } from 'react'
 import './index.less'
 import { Input } from 'antd'
 import { useHistory } from 'react-router-dom'
-import { postDream } from '@/network'
+import { connect } from 'react-redux'
+import { AddList } from '@/redux/list/Actions'
 
 const { TextArea } = Input
 const limit = 140
-export default function Index() {
+function Index(props) {
+  const { AddList } = props
   const [content, setContent] = useState('')
   const history = useHistory()
   const cancelClick = () => {
     history.push('/list')
   }
   const confirmClick = () => {
-    postDream(content).then((res) => {
-      console.log(res)
-      history.push('/list')
-    })
+    AddList(content)
+    history.goBack()
   }
   return (
     <div className="edit">
@@ -37,3 +37,7 @@ export default function Index() {
     </div>
   )
 }
+const mapDispatchToProps = {
+  AddList
+}
+export default connect(null, mapDispatchToProps)(Index)
